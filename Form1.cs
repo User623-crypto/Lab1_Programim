@@ -15,6 +15,8 @@ namespace ProjektTest1
         public Form1()
         {
             InitializeComponent();
+            this.progressBar1.Maximum = 100;
+            this.progressBar1.Step = 1;
         }
 
 
@@ -31,7 +33,7 @@ namespace ProjektTest1
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-
+            this.label1.Text = "Mos 1";
         }
 
         private void majtas_Click(object sender, EventArgs e)
@@ -42,6 +44,7 @@ namespace ProjektTest1
                  speed = int.Parse(this.textBox1.Text);
                 this.label1.Left = this.label1.Left - speed;
                 changeLabelColor();
+                progressBar1.PerformStep();
 
             }
             catch(Exception)
@@ -100,6 +103,23 @@ namespace ProjektTest1
             {
                 label1.Text = "O vella vendos nje numer tek textfield-i";
             }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            this.label1.Text = "Ke shtypur CheckBoxin";
+            progressBar1.Value += 10;
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            this.label1.Text = "Mos2";
+            progressBar1.Value -= 5;
+        }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+            progressBar1.Value = 0;
         }
     }
 }
